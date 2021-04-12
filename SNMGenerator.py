@@ -10,9 +10,9 @@ import pymysql
 import SNMMapToServer_Youtube
 
 def getRequest(contentServerNum):
-    db = pymysql.connect('localhost', 'root', 'love1001', 'SDN')
+    db = pymysql.connect('localhost', 'root', 'password', 'db')
     cursor = db.cursor()
-    sqlLine = "SELECT * FROM SDN.YoutubeBasedSNM  ORDER BY time ASC limit 50000 "
+    sqlLine = "SELECT * FROM SDN.YoutubeBasedSNM  ORDER BY time ASC "
     try:
         cursor.execute(sqlLine)
         requests = cursor.fetchall()
@@ -45,9 +45,9 @@ def getRequest(contentServerNum):
     return result
 
 def getSNMRequest(contentServerNum):#纯SNM
-    db = pymysql.connect('localhost', 'root', 'love1001', 'SDN')
+    db = pymysql.connect('localhost', 'root', 'password', 'db')
     cursor = db.cursor()
-    sqlLine = "SELECT * FROM SDN.SNM  ORDER BY time ASC limit 50000 "
+    sqlLine = "SELECT * FROM SDN.SNM  ORDER BY time ASC "
     try:
         cursor.execute(sqlLine)
         requests = cursor.fetchall()
